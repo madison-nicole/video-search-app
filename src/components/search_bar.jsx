@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function SearchBar({ search }) {
-  const [searchterm, setSearchTerm] = useState('');
-
+function SearchBar({ searchTerm, setSearchTerm }) {
   const onInputChange = (event) => {
     setSearchTerm(event.target.value);
     console.log(event.target.value);
   };
+
   return (
     <div>
-      <input onChange={onInputChange} value={searchterm} placeholder="search" />
+      <input onChange={onInputChange} value={searchTerm} placeholder="Enter search here..." />
     </div>
   );
 }

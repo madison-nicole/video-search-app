@@ -8,25 +8,29 @@ import VideoDetail from './video_detail';
 import SearchBar from './search_bar';
 
 function App(props) {
+  // term to search for
+  const [searchTerm, setSearchTerm] = useState('fuzzy cat');
+
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelected] = useState(null);
 
-  const search = (text) => {
+  function search(text) {
     youtubeSearch(text).then((result) => {
       setVideos(result);
       setSelected(result[0]);
     });
-  };
+  }
 
   // create a new debounced search function
   const debouncedSearch = useCallback(debounce(search, 500), []);
 
   useEffect(() => {
-    debouncedSearch('pixar');
-  }, []);
+    debouncedSearch(searchTerm);
+  }, [searchTerm]);
+
   return (
     <div id="video-section">
-      <SearchBar />
+      <SearchBar term={searchTerm} setTerm={setSearchTerm} />
       <VideoList onVideoSelect={(selection) => setSelected(selection)} videos={videos} />
       <VideoDetail video={selectedVideo} />
     </div>
