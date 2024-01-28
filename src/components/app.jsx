@@ -30,7 +30,7 @@ function App(props) {
 
   return (
     <div id="video-section">
-      <SearchBar term={searchTerm} setTerm={setSearchTerm} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <VideoList onVideoSelect={(selection) => setSelected(selection)} videos={videos} />
       <VideoDetail video={selectedVideo} />
     </div>

@@ -6,9 +6,9 @@ function VideoList({ onVideoSelect, videos }) {
     return <VideoListItem key={video.etag} video={video} onVideoSelect={onVideoSelect} />;
   });
   return (
-    <>
-      {videoItems};
-    </>
+    <div>
+      {videoItems}
+    </div>
   );
 }
 
