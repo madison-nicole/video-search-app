@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "frontend starter pack with vite, babel, sass, and eslint",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
