@@ -1,2 +1,4 @@
-# Video Search App in React
-This web app will search the YouTube API and list the top results as well as have one select video from the list highlighted with a video embed as well as some of the description and more data about the video.
+# Video Search App
+This web app will search the YouTube API and list the top results, have one select video from the list highlighted with a video embed, and have the title + the description + more data about the video.
+
+This app was built with React, JSX, and SCSS.
