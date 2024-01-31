@@ -6,7 +6,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
   };
 
   return (
-    <div>
+    <div className="search">
       <input onChange={onInputChange} value={searchTerm} placeholder="Enter search here..." />
     </div>
   );

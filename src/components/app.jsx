@@ -9,7 +9,7 @@ import SearchBar from './search_bar';
 
 function App(props) {
   // term to search for
-  const [searchTerm, setSearchTerm] = useState('fuzzy cat');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelected] = useState(null);

@@ -1,6 +1,6 @@
 body, html {
     font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+    background: linear-gradient(to bottom, #ffe0e6 0%,#ffc2cd 40%,#e38e9e 100%);
     height: 100%;
   }
 
@@ -26,15 +26,47 @@ body, html {
     background-color: $backgroundcolor;
     margin: 50px;
   }
-  
-  
-  #search-bar {
+
+  .video-list-column {
+    width: 500px;
+  }
+
+  .embed-responsive-16by9 {
+    box-shadow: 0 2px 8px 0 rgba(82, 69, 49, 0.3), 0 3px 20px 0 rgba(82, 69, 49, 0.29);
     margin-bottom: 20px;
+    width: 800px;
+    height: 450px;
+    border-radius: 8px;
+  }
+
+  .details {
+    width: 800px;
+    text-align: center;
+  }
+
+  .detail-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0px 20px 10px 20px;
+  }
+  
+  .detail-text {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0px 10px 0px 10px;
+  }
+
+  #search-bar {
+    margin-bottom: 35px;
   
     input {
       font-size: 1.5em;
       border-radius: .25em;
     }
+  }
+
+  .search {
+    margin-left: 10px;
   }
   
   #video-detail {
@@ -43,6 +75,11 @@ body, html {
   
   #video-section {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 1000px;
+    justify-content: flex-start;
+    margin-left: 50px;
   
     li {
       list-style: none;
@@ -50,9 +87,16 @@ body, html {
       display: flex;
       width: 25vw;
       padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
     }
     li:hover {
       background: darken( $backgroundcolor, 10% );
     }
   
   }
+
+  button, input {
+    overflow: visible;
+    width: 250px;
+}

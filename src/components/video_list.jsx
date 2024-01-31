@@ -6,7 +6,7 @@ function VideoList({ onVideoSelect, videos }) {
     return <VideoListItem key={video.etag} video={video} onVideoSelect={onVideoSelect} />;
   });
   return (
-    <div>
+    <div className="video-list-column">
       {videoItems}
     </div>
   );

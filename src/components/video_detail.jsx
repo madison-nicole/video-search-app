@@ -14,8 +14,8 @@ function VideoDetail({ video }) {
         <iframe title="youtube detail" className="embed-responsive-item" src={url} />
       </div>
       <div className="details">
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
+        <div className="detail-title">{video.snippet.title}</div>
+        <div className="detail-text">{video.snippet.description}</div>
       </div>
     </div>
   );
