@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function VideoDetail({ video }) {
+function VideoDetail() {
+  const video = useSelector((reduxState) => reduxState.video?.selected);
+
   if (!video) {
-    return <div>Loading...</div>;
+    return <div />;
   }
 
   const { videoId } = video.id;
@@ -11,7 +14,7 @@ function VideoDetail({ video }) {
   return (
     <div id="video-detail">
       <div className="embed-responsive embed-responsive-16by9">
-        <iframe title="youtube detail" className="embed-responsive-item" src={url} />
+        <iframe className="embed-responsive-item" src={url} title="youtube detail" />
       </div>
       <div className="details">
         <div className="detail-title">{video.snippet.title}</div>
