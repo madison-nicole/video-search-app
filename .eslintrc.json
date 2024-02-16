@@ -33,9 +33,16 @@
         "react/jsx-filename-extension": 0,
         "jsx-a11y/click-events-have-key-events": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
-        "react/jsx-one-expression-per-line":0
+        "react/jsx-one-expression-per-line":0,
+        "react/jsx-sort-props": [2, {
+            "callbacksLast": true,
+            "noSortAlphabetically": false
+          }],
+          "react-hooks/rules-of-hooks": "error", // For checking rules of hooks
+          "react-hooks/exhaustive-deps": "error" // For checking hook dependencies 
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ]
 }

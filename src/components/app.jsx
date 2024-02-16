@@ -1,40 +1,55 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import debounce from 'lodash.debounce';
-import youtubeSearch from '../services/youtube-api';
-import VideoList from './video_list';
-import VideoDetail from './video_detail';
+import React from 'react';
+import {
+  BrowserRouter, Routes, Route, useParams,
+} from 'react-router-dom';
 
-// import our new SearchBar component
-import SearchBar from './search_bar';
+import YouTube from './youtube';
 
-function App(props) {
-  // term to search for
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelected] = useState(null);
-
-  function search(text) {
-    youtubeSearch(text).then((result) => {
-      setVideos(result);
-      setSelected(result[0]);
-    });
-  }
-
-  // create a new debounced search function
-  const debouncedSearch = useCallback(debounce(search, 500), []);
-
-  useEffect(() => {
-    debouncedSearch(searchTerm);
-  }, [searchTerm]);
-
+export default function App(props) {
   return (
-    <div id="video-section">
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <VideoList onVideoSelect={(selection) => setSelected(selection)} videos={videos} />
-      <VideoDetail video={selectedVideo} />
-    </div>
+    <BrowserRouter>
+      <div>
+        {/* <Nav /> */}
+        <Routes>
+          <Route element={<Welcome />} path="/" />
+          <Route element={<About />} path="/about" />
+          <Route element={<Test />} path="/test/:id" />
+          <Route element={<FallBack />} path="*" />
+          <Route element={<YouTube />} path="/youtube" />
+
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
-export default App;
+function FallBack(props) {
+  return <div>URL Not Found</div>;
+}
+
+// function Nav(props) {
+//   return (
+//     <nav>
+//       <ul>
+//         <li><NavLink to="/">Home</NavLink></li>
+//         <li><NavLink to="/about">About</NavLink></li>
+//         <li><NavLink to="/test/id1">test id1</NavLink></li>
+//         <li><NavLink to="/test/id2">test id2</NavLink></li>
+//         <li><NavLink to="/youtube">YouTube</NavLink></li>
+
+//       </ul>
+//     </nav>
+//   );
+// }
+
+function Test(props) {
+  const { id } = useParams();
+  return <div> ID: {id} </div>;
+}
+
+function About(props) {
+  return <div> All there is to know about me </div>;
+}
+function Welcome(props) {
+  return <div>Welcome</div>;
+}
